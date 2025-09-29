@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ficha — {{ name }}</title>
+  <title>Suraelec • Carnet de colaborador • {{ name }}</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -115,34 +115,48 @@
 
   <main class="mx-auto max-w-content px-4">
     <section class="bg-surface dark:bg-primary-strong rounded-lgx shadow-soft hover:shadow-hover transition p-md mt-sm">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
-        <div>
-          <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
-            {{ name }}
-          </h1>
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-xs">
+        <div class="block md:hidden mt-3">
+          <div class="w-20 h-20 rounded-full bg-neutral/20 flex items-center justify-center text-neutral text-xs border border-neutral/30">
+            Imagen
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-4">
+            <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+              {{ name }}
+            </h1>
+            <!-- Placeholder para la imagen, alineado a la derecha en desktop -->
+            <div class="hidden md:block ml-auto">
+              <div class="w-20 h-20 rounded-full bg-neutral/20 flex items-center justify-center text-neutral text-xs border border-neutral/30">
+                Imagen
+              </div>
+            </div>
+          </div>
           <p class="mt-xs text-neutral dark:text-accent-soft">
             {{ position }}
           </p>
         </div>
-        <div class="flex flex-col gap-1 text-sm">
+        <div class="flex flex-col gap-1 text-sm mt-2 md:mt-0">
           <a href="tel:{{ phone }}" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
             {{ phone }}
           </a>
           <a href="mailto:{{ email }}" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
             {{ email }}
           </a>
-          <p class="text-neutral mt-2">ID: <span class="font-mono">{{ id }}</span></p>
         </div>
+        <!-- Placeholder para la imagen en mobile (opcional, si quieres mostrarla también en mobile) -->
+  
       </div>
 
       <div class="mt-md grid grid-cols-1 md:grid-cols-3 gap-md">
-        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md hover:border-accent hover:border-2 transition">
           <h2 class="font-semibold mb-sm">Perfil</h2>
           <p class="text-neutral dark:text-accent-soft">
-            Este espacio puede usarse para una breve descripción del rol o notas internas.
+            {{ profile }}
           </p>
         </article>
-        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md hover:border-accent hover:border-2 transition">
           <h2 class="font-semibold mb-sm">Contacto</h2>
           <ul class="space-y-1 text-neutral dark:text-accent-soft">
             <li>Correo: <a class="text-accent hover:underline" href="mailto:{{ email }}">{{ email }}</a></li>
@@ -152,13 +166,18 @@
         <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
           <h2 class="font-semibold mb-sm">Acciones</h2>
           <div class="flex gap-2">
+            <a href="tel:{{ phone }}"
+               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium hover:bg-accent-soft transition">
+              Llamar
+            </a>
             <a href="mailto:{{ email }}"
-               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium">
+               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition">
               Enviar correo
             </a>
+            
             <a href="tel:{{ phone }}"
                class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition">
-              Llamar
+              WhatsApp
             </a>
           </div>
         </article>
@@ -167,7 +186,7 @@
   </main>
 
   <footer class="mx-auto max-w-content px-4 py-lg text-center text-xs text-neutral">
-    © Suraelec — Ficha de colaborador
+    © Suraelec 2025
   </footer>
 
   <script>
