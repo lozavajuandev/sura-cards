@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ficha — Juanito Prueba</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuración Tailwind con la paleta del brand
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0c1f3f',
+            'primary-strong': '#07152b',
+            accent: '#5ee599',
+            'accent-soft': '#e2ffd5',
+            surface: '#ffffff',
+            'surface-alt': '#f6f9fc',
+            neutral: '#6b7a90',
+            success: '#4ad66d',
+            warning: '#f5a524',
+          },
+          boxShadow: {
+            soft: '0 18px 40px -24px rgba(9, 34, 66, 0.482)',
+            hover: '0 20px 60px -20px rgba(9, 34, 66, 0.75)',
+          },
+          borderRadius: {
+            lgx: '28px',
+            mdx: '20px',
+            smx: '12px',
+          },
+          spacing: {
+            xs: 'clamp(0.35rem, 0.28rem + 0.3vw, 0.55rem)',
+            sm: 'clamp(0.75rem, 0.68rem + 0.4vw, 1rem)',
+            md: 'clamp(1.25rem, 1.08rem + 0.8vw, 2rem)',
+            lg: 'clamp(2.35rem, 1.8rem + 2vw, 3.5rem)',
+          },
+          maxWidth: {
+            content: 'min(1200px, 92vw)',
+          },
+          fontSize: {
+            base: 'clamp(15px, 14px + 0.4vw, 18px)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Root CSS (tus variables) -->
+  <style>
+    :root{
+      --color-primary:#0c1f3f;
+      --color-primary-strong:#07152b;
+      --color-accent:#5ee599;
+      --color-accent-soft:#e2ffd5;
+      --color-surface:#ffffff;
+      --color-surface-alt:#f6f9fc;
+      --color-neutral:#6b7a90;
+      --color-success:#4ad66d;
+      --color-warning:#f5a524;
+      --shadow-soft:0 18px 40px -24px rgba(9,34,66,.482);
+      --shadow-hover:0 20px 60px -20px rgba(9,34,66,.75);
+      --radius-lg:28px;
+      --radius-md:20px;
+      --radius-sm:12px;
+      --spacing-xs:clamp(.35rem,.28rem + .3vw,.55rem);
+      --spacing-sm:clamp(.75rem,.68rem + .4vw,1rem);
+      --spacing-md:clamp(1.25rem,1.08rem + .8vw,2rem);
+      --spacing-lg:clamp(2.35rem,1.8rem + 2vw,3.5rem);
+      --max-width:min(1200px,92vw);
+      font-size:clamp(15px,14px + .4vw,18px);
+    }
+    /* Estado inicial del tema basado en preferencia guardada o media query */
+    html:not(.dark) body{ background: #f6f9fc; }
+    .theme-toggle:focus-visible{ outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  </style>
+
+  <script>
+    // Aplica tema antes del render para evitar "flash"
+    (function(){
+      const saved = localStorage.getItem('suraelec-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="text-primary dark:text-white">
+  <header class="w-full">
+    <div class="mx-auto max-w-content px-4 py-sm flex items-center justify-between">
+      <!-- Logos (se muestran según tema) -->
+      <div class="flex items-center gap-3">
+        <img src="../assets/logo.png" alt="Suraelec" class="h-8 block dark:hidden" />
+        <img src="../assets/logo-dark.png" alt="Suraelec" class="h-8 hidden dark:block" />
+      </div>
+
+      <!-- Toggle tema -->
+      <button
+        class="theme-toggle inline-flex items-center gap-2 rounded-mdx px-4 py-2 text-sm font-medium bg-accent text-primary hover:shadow-hover shadow-soft transition"
+        aria-label="Cambiar tema"
+        onclick="toggleTheme()">
+        <span class="hidden sm:inline">Tema</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+          <path d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm8-5a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4 12a1 1 0 0 1-1 1H1a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm15.071 7.071a1 1 0 0 1-1.414 0l-1.414-1.414a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM7.757 7.757a1 1 0 0 1-1.414 0L4.929 6.343a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zm10.485-2.828a1 1 0 0 1 0-1.414l1.414-1.414a1 1 0 1 1 1.414 1.414L19.657 4.93a1 1 0 0 1-1.414 0zM4.93 19.657a1 1 0 0 1 0-1.414l1.414-1.414A1 1 0 1 1 7.758 18.243L6.343 19.657a1 1 0 0 1-1.414 0z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-content px-4">
+    <section class="bg-surface dark:bg-primary-strong rounded-lgx shadow-soft hover:shadow-hover transition p-md mt-sm">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+            Juanito Prueba
+          </h1>
+          <p class="mt-xs text-neutral dark:text-accent-soft">
+            Gerente
+          </p>
+        </div>
+        <div class="flex flex-col gap-1 text-sm">
+          <a href="tel:3505121212" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
+            3505121212
+          </a>
+          <a href="mailto:Tets@uno.com" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
+            Tets@uno.com
+          </a>
+          <p class="text-neutral mt-2">ID: <span class="font-mono">1</span></p>
+        </div>
+      </div>
+
+      <div class="mt-md grid grid-cols-1 md:grid-cols-3 gap-md">
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+          <h2 class="font-semibold mb-sm">Perfil</h2>
+          <p class="text-neutral dark:text-accent-soft">
+            Este espacio puede usarse para una breve descripción del rol o notas internas.
+          </p>
+        </article>
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+          <h2 class="font-semibold mb-sm">Contacto</h2>
+          <ul class="space-y-1 text-neutral dark:text-accent-soft">
+            <li>Correo: <a class="text-accent hover:underline" href="mailto:Tets@uno.com">Tets@uno.com</a></li>
+            <li>Teléfono: <a class="text-accent hover:underline" href="tel:3505121212">3505121212</a></li>
+          </ul>
+        </article>
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+          <h2 class="font-semibold mb-sm">Acciones</h2>
+          <div class="flex gap-2">
+            <a href="mailto:Tets@uno.com"
+               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium hover:shadow-hover transition">
+              Enviar correo
+            </a>
+            <a href="tel:3505121212"
+               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition">
+              Llamar
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto max-w-content px-4 py-lg text-center text-xs text-neutral">
+    © Suraelec — Ficha de colaborador
+  </footer>
+
+  <script>
+    function toggleTheme(){
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('suraelec-theme', isDark ? 'dark' : 'light');
+    }
+  </script>
+</body>
+</html>
