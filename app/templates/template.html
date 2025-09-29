@@ -20,6 +20,7 @@
             'accent-soft': '#e2ffd5',
             surface: '#ffffff',
             'surface-alt': '#f6f9fc',
+            'surface-dark': '#1a2a40',
             neutral: '#6b7a90',
             success: '#4ad66d',
             warning: '#f5a524',
@@ -90,13 +91,13 @@
     })();
   </script>
 </head>
-<body class="text-primary dark:text-white">
+<body class="text-primary dark:text-white bg-surface-alt dark:bg-surface-dark">
   <header class="w-full">
     <div class="mx-auto max-w-content px-4 py-sm flex items-center justify-between">
       <!-- Logos (se muestran según tema) -->
       <div class="flex items-center gap-3">
-        <img src="../assets/logo.png" alt="Suraelec" class="h-8 block dark:hidden" />
-        <img src="../assets/logo-dark.png" alt="Suraelec" class="h-8 hidden dark:block" />
+        <img src="../../assets/logo.png" alt="Suraelec" class="h-8 block dark:hidden" />
+        <img src="../../assets/logo-dark.png" alt="Suraelec" class="h-8 hidden dark:block" />
       </div>
 
       <!-- Toggle tema -->
@@ -152,7 +153,7 @@
           <h2 class="font-semibold mb-sm">Acciones</h2>
           <div class="flex gap-2">
             <a href="mailto:{{ email }}"
-               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium hover:shadow-hover transition">
+               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium">
               Enviar correo
             </a>
             <a href="tel:{{ phone }}"
