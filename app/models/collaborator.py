@@ -8,3 +8,4 @@ class Collaborator:
     position: str
     phone: str
     email: str
+    profile: str

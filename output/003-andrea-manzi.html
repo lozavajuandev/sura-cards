@@ -90,6 +90,8 @@
       }
     })();
   </script>
+
+
 </head>
 <body class="text-primary dark:text-white bg-surface-alt dark:bg-surface-dark">
   <header class="w-full">
@@ -101,15 +103,7 @@
       </div>
 
       <!-- Toggle tema -->
-      <button
-        class="theme-toggle inline-flex items-center gap-2 rounded-mdx px-4 py-2 text-sm font-medium bg-accent text-primary hover:shadow-hover shadow-soft transition"
-        aria-label="Cambiar tema"
-        onclick="toggleTheme()">
-        <span class="hidden sm:inline">Tema</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-          <path d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm8-5a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4 12a1 1 0 0 1-1 1H1a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm15.071 7.071a1 1 0 0 1-1.414 0l-1.414-1.414a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM7.757 7.757a1 1 0 0 1-1.414 0L4.929 6.343a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zm10.485-2.828a1 1 0 0 1 0-1.414l1.414-1.414a1 1 0 1 1 1.414 1.414L19.657 4.93a1 1 0 0 1-1.414 0zM4.93 19.657a1 1 0 0 1 0-1.414l1.414-1.414A1 1 0 1 1 7.758 18.243L6.343 19.657a1 1 0 0 1-1.414 0z"/>
-        </svg>
-      </button>
+    
     </div>
   </header>
 
@@ -118,7 +112,7 @@
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-xs">
         <div class="block md:hidden mt-3">
           <div class="w-20 h-20 rounded-full bg-neutral/20 flex items-center justify-center text-neutral text-xs border border-neutral/30">
-            <img src="../assets/3.jpg" alt="Foto Andrea Manzi" class="w-full h-full rounded-full">
+            <img src="../assets/3.png" alt="Foto Andrea Manzi" class="w-full h-full rounded-full">
           </div>
         </div>
         <div class="flex flex-col gap-1">
@@ -129,7 +123,7 @@
             <!-- Placeholder para la imagen, alineado a la derecha en desktop -->
             <div class="hidden md:block ml-auto">
               <div class="w-20 h-20 rounded-full bg-neutral/20 flex items-center justify-center text-neutral text-xs border border-neutral/30">
-                Imagen
+                <img src="../assets/3.png" alt="Foto Andrea Manzi" class="w-full h-full rounded-full">
               </div>
             </div>
           </div>
@@ -137,14 +131,7 @@
             Comercial
           </p>
         </div>
-        <div class="flex flex-col gap-1 text-sm mt-2 md:mt-0">
-          <a href="tel:pendiente" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
-            pendiente
-          </a>
-          <a href="mailto:pendiente" class="underline underline-offset-4 decoration-accent hover:text-accent transition">
-            pendiente
-          </a>
-        </div>
+        
         <!-- Placeholder para la imagen en mobile (opcional, si quieres mostrarla también en mobile) -->
   
       </div>
@@ -153,31 +140,30 @@
         <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md hover:border-accent hover:border-2 transition">
           <h2 class="font-semibold mb-sm">Perfil</h2>
           <p class="text-neutral dark:text-accent-soft">
-            
+            nan
           </p>
         </article>
         <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md hover:border-accent hover:border-2 transition">
           <h2 class="font-semibold mb-sm">Contacto</h2>
           <ul class="space-y-1 text-neutral dark:text-accent-soft">
-            <li>Correo: <a class="text-accent hover:underline" href="mailto:pendiente">pendiente</a></li>
+            <li>Correo: <a class="text-accent hover:underline" href="mailto:amanzi@suraelec.com">amanzi@suraelec.com</a></li>
             <li>Teléfono: <a class="text-accent hover:underline" href="tel:pendiente">pendiente</a></li>
           </ul>
         </article>
-        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md">
+        <article class="rounded-mdx bg-surface-alt dark:bg-primary p-md flex flex-col gap-2">
           <h2 class="font-semibold mb-sm">Acciones</h2>
-          <div class="flex gap-2">
+          <div class="flex flex-wrap gap-2">
             <a href="tel:pendiente"
-               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium hover:bg-accent-soft transition">
+               class="px-4 py-2 rounded-mdx bg-accent text-primary font-medium hover:bg-accent-soft transition flex items-center justify-center">
               Llamar
             </a>
-            <a href="mailto:pendiente"
-               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition">
+            <a href="mailto:amanzi@suraelec.com"
+               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition flex-1">
               Enviar correo
             </a>
-            
-            <a href="tel:pendiente"
-               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition">
-              WhatsApp
+<a href="https://wa.me/pendiente"
+               class="px-4 py-2 rounded-mdx border border-accent text-accent font-medium hover:bg-accent/10 transition flex  items-center justify-center">
+              <span class="inline-block align-middle">WhatsApp</span>
             </a>
           </div>
         </article>
@@ -188,13 +174,5 @@
   <footer class="mx-auto max-w-content px-4 py-lg text-center text-xs text-neutral">
     © Suraelec 2025
   </footer>
-
-  <script>
-    function toggleTheme(){
-      const root = document.documentElement;
-      const isDark = root.classList.toggle('dark');
-      localStorage.setItem('suraelec-theme', isDark ? 'dark' : 'light');
-    }
-  </script>
 </body>
 </html>

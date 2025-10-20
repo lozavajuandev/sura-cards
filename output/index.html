@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suraelec • Conversemos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0c1f3f',
+            'primary-strong': '#07152b',
+            accent: '#5ee599',
+            'accent-soft': '#e2ffd5',
+            neutral: '#6b7a90',
+            surface: '#ffffff',
+            'surface-alt': '#f6f9fc',
+          },
+          boxShadow: {
+            soft: '0 20px 45px -20px rgba(9, 34, 66, 0.45)',
+            hover: '0 25px 70px -25px rgba(9, 34, 66, 0.6)',
+          },
+          borderRadius: {
+            lgx: '28px',
+            mdx: '20px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-primary: #0c1f3f;
+      --color-primary-strong: #07152b;
+      --color-accent: #5ee599;
+      --color-accent-soft: #e2ffd5;
+      --color-neutral: #6b7a90;
+      --shadow-soft: 0 20px 45px -20px rgba(9, 34, 66, 0.45);
+      --shadow-hover: 0 25px 70px -25px rgba(9, 34, 66, 0.6);
+      font-size: clamp(16px, 15px + 0.4vw, 18px);
+    }
+    body {
+      background: radial-gradient(circle at top, rgba(94, 229, 153, 0.12), transparent 55%),
+                  #f6f9fc;
+    }
+    .link-button:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-primary flex items-center justify-center px-4 py-12">
+  <main class="w-full max-w-xl">
+    <section class="bg-surface shadow-soft rounded-lgx p-8 flex flex-col items-center gap-6">
+      <img src="../assets/logo.png" alt="Suraelec" class="h-12" />
+
+      <div class="text-center space-y-2">
+        <p class="uppercase tracking-wide text-sm text-neutral">Bienvenido</p>
+        <h1 class="text-3xl font-semibold">Conversemos</h1>
+        <p class="text-neutral">
+          Elige la opción que prefieras para comunicarte con nosotros.
+        </p>
+      </div>
+
+      <div id="main-links" class="w-full flex flex-col gap-3">
+        <a href="https://suraelec.com" target="_blank" rel="noopener" class="link-button">
+          Página web oficial
+        </a>
+        <a href="https://wa.me/573000000000" target="_blank" rel="noopener" class="link-button">
+          WhatsApp servicio al cliente
+        </a>
+        <a href="https://www.instagram.com/suraelec" target="_blank" rel="noopener" class="link-button">
+          Instagram
+        </a>
+        <a href="https://www.linkedin.com/company/suraelec" target="_blank" rel="noopener" class="link-button">
+          LinkedIn
+        </a>
+        <button type="button"
+                class="link-button bg-primary text-white hover:bg-primary-strong"
+                id="directory-trigger"
+                aria-controls="directory-links"
+                aria-expanded="false">
+          Directorio de comerciales
+        </button>
+      </div>
+
+      <div id="directory-links" class="w-full flex-col gap-5 hidden">
+        <p class="text-neutral text-sm text-center">
+          Elige un asesor para contactar directamente.
+        </p>
+        <div class="directory-group">
+          <p class="directory-heading">Regional Centro</p>
+          <div class="flex flex-col gap-3">
+            <a href="./001-anyerson-buitrago.html" class="link-button link-button--stacked">
+              <span class="link-title">Anyerson Buitrago</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+            <a href="./003-andrea-manzi.html" class="link-button link-button--stacked">
+              <span class="link-title">Andrea Manzi</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+            <a href="./006-juan-j-lozano.html" class="link-button link-button--stacked">
+              <span class="link-title">Juan J. Lozano</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="directory-group">
+          <p class="directory-heading">Regional Caribe</p>
+          <div class="flex flex-col gap-3">
+            <a href="./005-celina-charris.html" class="link-button link-button--stacked">
+              <span class="link-title">Celina Charris</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+            <a href="./004-ricardo-avila.html" class="link-button link-button--stacked">
+              <span class="link-title">Ricardo Ávila</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+            <a href="./002-william-romero.html" class="link-button link-button--stacked">
+              <span class="link-title">William Romero</span>
+              <span class="link-subtitle">Subtítulo pendiente</span>
+            </a>
+          </div>
+        </div>
+        <button type="button" class="link-button bg-primary text-white hover:bg-primary-strong" id="back-trigger">
+          Volver a las opciones principales
+        </button>
+      </div>
+
+      <footer class="text-xs text-neutral pt-2">
+        © Suraelec 2025. Todos los derechos reservados.
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    const mainLinks = document.getElementById('main-links');
+    const directoryLinks = document.getElementById('directory-links');
+    const directoryTrigger = document.getElementById('directory-trigger');
+    const backTrigger = document.getElementById('back-trigger');
+
+    if (mainLinks && directoryLinks && directoryTrigger && backTrigger) {
+      const showDirectory = () => {
+        mainLinks.classList.add('hidden');
+        directoryLinks.classList.remove('hidden');
+        directoryLinks.classList.add('flex');
+        directoryTrigger.setAttribute('aria-expanded', 'true');
+        const firstLink = directoryLinks.querySelector('a');
+        if (firstLink) {
+          firstLink.focus();
+        }
+      };
+
+      const showMain = () => {
+        directoryLinks.classList.add('hidden');
+        directoryLinks.classList.remove('flex');
+        mainLinks.classList.remove('hidden');
+        directoryTrigger.setAttribute('aria-expanded', 'false');
+        const focusable = mainLinks.querySelector('a, button');
+        if (focusable instanceof HTMLElement) {
+          focusable.focus();
+        }
+      };
+
+      directoryTrigger.addEventListener('click', showDirectory);
+      backTrigger.addEventListener('click', showMain);
+    }
+  </script>
+
+  <style>
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.95rem 1.6rem;
+      border-radius: 20px;
+      background: #ffffff;
+      color: var(--color-primary);
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      text-align: center;
+    }
+
+    .link-button:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      background: rgba(94, 229, 153, 0.12);
+    }
+
+    .directory-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .directory-heading {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-neutral);
+      font-weight: 600;
+    }
+
+    .directory-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .directory-heading {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-neutral);
+      font-weight: 600;
+    }
+
+    .link-button--stacked {
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-top: 1.1rem;
+      padding-bottom: 1.1rem;
+    }
+
+    .link-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .link-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-neutral);
+      font-weight: 400;
+    }
+  </style>
+</body>
+</html>
+
